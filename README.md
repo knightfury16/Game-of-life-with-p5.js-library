@@ -25,6 +25,6 @@ In its standard format, the Game of Life unfolds on an *infinite two-dimensional
 - Any **‘on’** cell (**_t -1_**) with **more than three ‘on’ neighbours** (**_t -1_**) transitions to an **‘off’** state at time **_t_**.
 - Any **‘off’** cell (**_t -1_**) with **exactly three ‘on’ neighbours** (**_t -1_**) transitions to an **‘on’** state at time **_t_**.
 
-To render the game click this [link](https://knightfury16.github.io/Game-of-life-with-p5.js-library/). Either draw the game initial configuration manually with the mouse or initialize randomly with the random seed button. And then click *play*.
+To render the game click this **[link](https://knightfury16.github.io/Game-of-life-with-p5.js-library/)**. Either draw the game initial configuration manually with the mouse or initialize randomly with the random seed button. And then click *play*.
 
 
