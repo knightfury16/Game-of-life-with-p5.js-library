@@ -1,5 +1,7 @@
 class MakeGrid {
   
+  // let prevx = 0;
+  // let prevy = 0;
 
   constructor(width, height, resolution, r=0, g=0, b=0) {
     this.width = width;
@@ -8,6 +10,8 @@ class MakeGrid {
     this.r = r;
     this.g = g;
     this.b = b;
+    this.prevx = 0;
+    this.prevy = 0;
 
     this.rows = this.width / this.resolution;
     this.col = this.height / this.resolution;
@@ -74,5 +78,6 @@ class MakeGrid {
         }
       }
     }
+    
   }
 }

@@ -1,14 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js"></script>
-    <script src="sketch.js"></script>
-    <script src="MakeGrid.js"></script>
+   <!--  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script> -->
+    <!-- <script type='module' src="firebaseTest.js"></script> -->
+    <!-- <script src="button.js"></script> -->
+    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game of life</title>
 </head>
 <body>
-    
+
+   <div id="content">
+      <header>
+         <h1>Game of life</h1>
+      </header>
+      <main></main>
+      <section>
+         <h2>Some interesting example</h2>
+         <button class="button-6" id="bt1"></button>
+         <button class="button-6" id="bt2"></button>
+         <button class="button-6" id="bt3"></button>
+         <button class="button-6" id="bt4"></button>
+         <button class="button-6" id="bt5"></button>
+         <button class="button-6" id="bt6"></button>
+         <button class="button-6" id="bt7"></button>
+         <button class="button-6" id="bt8"></button>
+
+         <div id="article">
+            <h2>Rules</h2>
+            For a cell that is populated:
+            <ol>
+               <li>Each cell with one or no neighbors dies, as if by solitude.</li>
+               <li>Each cell with four or more neighbors dies, as if by overpopulation.</li>
+               <li>Each cell with two or three neighbors survives.</li>
+            </ol>
+            For a cell that is unpopulated or empty:
+            <ol>
+               <li>Each cell with exactly three neighbors becomes populated.</li>
+            </ol>
+            <div id="gridRule">
+               <p>*Left click to populate a cell<br>
+               *Right click to unpopulate a cell</p>
+            </div>
+         </div>
+
+      </section>
+      <span class="button"></span>
+
+   </div>
+
+
 </body>
+<script defer src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js"></script>
+<script defer  src="sketch.js" ></script>
+<script defer src="MakeGrid.js"></script>
 </html>
