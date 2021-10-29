@@ -116,20 +116,23 @@ function gotData(data)
 }
 
 
-function draw() {
+/* Use built in mousePressed() method for handling mouse clicks-
+   Not System Boolean mouseIsPressed */
 
-
+function mousePressed() {
   //While play is false, that is when the player is editing the canvas
+
   if (!play) {
-    if(mouseIsPressed)
-    {
       grid.drawing(mouseX,mouseY,mouseButton);
-    }
   }
 
+}
+
+
+function draw() {
 
   //While play is true, that is the game is running
-  else {
+  if (play) {
 
     for (let i = 0; i < rows; i++) {
 
