@@ -2,6 +2,8 @@
 
 This is a simple implementation of **Conway's game of life** in javascript using *p5 library*.
 
+# Want to just play the game, click [PLAY](https://knightfury16.github.io/Game-of-life-with-p5.js-library/src)
+
 
 
 
