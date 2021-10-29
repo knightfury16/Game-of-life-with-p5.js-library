@@ -116,23 +116,31 @@ function gotData(data)
 }
 
 
-/* Use built in mousePressed() method for handling mouse clicks-
-   Not System Boolean mouseIsPressed */
+// Use built in mousePressed() method to make sure a MouseClick Event isn't missed
 
 function mousePressed() {
   //While play is false, that is when the player is editing the canvas
 
   if (!play) {
-      grid.drawing(mouseX,mouseY,mouseButton);
+    grid.drawing(mouseX,mouseY,mouseButton);
   }
 
 }
 
 
 function draw() {
+ //While play is false, that is when the player is editing the canvas
+ //Useful for Drag-Selecting Cells
+  if (!play) {
+     if(mouseIsPressed)
+     {
+       grid.drawing(mouseX,mouseY,mouseButton);
+     }
+   }
 
+   
   //While play is true, that is the game is running
-  if (play) {
+  else {
 
     for (let i = 0; i < rows; i++) {
 
