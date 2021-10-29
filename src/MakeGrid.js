@@ -1,8 +1,5 @@
 class MakeGrid {
   
-  // let prevx = 0;
-  // let prevy = 0;
-
   constructor(width, height, resolution, r=0, g=0, b=0) {
     this.width = width;
     this.height = height;
@@ -10,17 +7,19 @@ class MakeGrid {
     this.r = r;
     this.g = g;
     this.b = b;
-    this.prevx = 0;
-    this.prevy = 0;
 
+    //Calculatin number of column and rows
     this.rows = this.width / this.resolution;
     this.col = this.height / this.resolution;
 
+
+    //Making a 2D array. Js doesn't support native 2D array so we make in it by declaring array within array.
     this.grid = new Array(this.rows);
     for (let i = 0; i < this.grid.length; i++) {
       this.grid[i] = new Array(this.col);
     }
 
+    //Initilizing the grid value with 0
     for (let i = 0; i < this.rows; i++) {
       for (let j = 0; j < this.col; j++) {
         this.grid[i][j] = 0;
@@ -28,6 +27,8 @@ class MakeGrid {
     }
   }
 
+
+  //Method to render the grid in the canvas
   showGrid() {
     // fill(this.r, this.g, this.b);
     for (let i = 0; i < this.rows; i++) {
@@ -41,6 +42,7 @@ class MakeGrid {
     }
   }
 
+  //Method for drawing in the canvas
   drawing(mouseX, mouseY, mouseButton) {
     this.mouseButton = mouseButton;
     this.mouseX = mouseX;
@@ -49,6 +51,7 @@ class MakeGrid {
       for (let y = 0; y < this.col; y++) {
         for (let x = 0; x < this.rows; x++) {
           if (
+             //Calculating the square cordiante that is clicked.
             this.mouseX < x * this.resolution + this.resolution &&
             this.mouseX > x * this.resolution &&
             this.mouseY < y * this.resolution + this.resolution &&

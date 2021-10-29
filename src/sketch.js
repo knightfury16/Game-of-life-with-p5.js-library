@@ -1,16 +1,10 @@
 //Declaring the global variables.
 let rows;
 let col;
-let res = 20;
+let res = 20; //use this to calculate the number of square in the canvas. #square = width / res
 let grid;
-let firebase;
 let play = false;  // Flag to check whether the player is in editing mode or play mode. Default editing mode.
-// let data;
 
-// function preload()
-// {
-//   data = loadJSON("data.json");
-// }
 
 
 //Function to count neighbour with wrap around
@@ -50,9 +44,11 @@ function setup() {
   grid = new MakeGrid(width,height,res,80,80,80);
   grid.showGrid();
 
+  //Rendering the buttons.(play,stop,random,reset)
   button();
 
-  //Block Context menu
+
+  //Block Context menu, right click context within the canvas
   let cnv = document.querySelector("#defaultCanvas0");
   cnv.addEventListener('contextmenu',(evt) =>{
     evt.preventDefault();
@@ -60,43 +56,14 @@ function setup() {
 
 
   //Loding data
-
   loadJSON("data.json",gotData);
 
-  // let a = document.querySelector("#article");
-
-
-  // for(let i = 0; i < data.list.length; i++)
-  // {
-
-  //   let id = "#bt"+(i+1);
-  //   let btn = document.querySelector(id);
-
-  //   btn.innerText = data.list[i].name;
-
-  //   btn.addEventListener("click",()=>{
-  //     grid.grid = data.list[i].grid;
-  //     a.innerHTML = data.list[i].description;
-  //     grid.showGrid();
-  //   })
-
-  // }
-
-  // let diamond = select("#bt1");
-  // let a = select("#article");
-  // diamond.html("4-8-12 diamond");
-  // diamond.mousePressed(() =>{
-  //   grid.grid = data.diamond.grid;
-  //   a.html(data.diamond.description);
-
-  //   grid.showGrid();
-
-  // })
 
 }
 
 function gotData(data)
 {
+  //Getting the data and rendering the button in interesting example section
   let a = document.querySelector("#article");
 
   for(let i = 0; i < data.list.length; i++)
@@ -112,7 +79,7 @@ function gotData(data)
     })
 
   }
-  console.log(data.list[0].description);
+  // console.log(data.list[0].description);
 }
 
 
@@ -174,6 +141,7 @@ function draw() {
 }
 
 
+//Function to render the buttons
 function button()
 {
   let sp = select(".button");
