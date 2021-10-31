@@ -36,7 +36,7 @@ function setup() {
   background(0,0,0,100);
 
   //Reducing the frame rate
-  frameRate(15);
+  frameRate(12);
   
   rows = width / res;
   col = height / res;
@@ -73,13 +73,20 @@ function gotData(data)
     btn.innerText = data.list[i].name;
 
     btn.addEventListener("click",()=>{
-      grid.grid = data.list[i].grid;
-      a.innerHTML = data.list[i].description;
-      grid.showGrid();
-    })
+      if(!play){
+
+        for(let j = 0; j < rows; j++ ){
+          grid.grid[j] = data.list[i].grid[j].slice();
+        }
+        // grid.grid = [data.list[i].grid];
+        a.innerHTML = data.list[i].description;
+        grid.showGrid();
+      }
+
+    });
 
   }
-  // console.log(data.list[0].description);
+  // console.log(data.list[0].grid);
 }
 
 
@@ -162,8 +169,19 @@ function button()
   playButton.parent(sp);
   playButton.attribute('class','button-6');
   playButton.mousePressed(function() {
-      play = true;
-      loop();
+
+      for(let i = 0; i < rows; i++)
+      {
+        for(let j = 0; j < col; j++)
+        {
+          if(grid.grid[i][j]!=0)
+          {
+            play = true;
+            loop();
+          }
+        }
+      }
+      
     });
 
   // Stop button
@@ -171,7 +189,7 @@ function button()
   stopButton.parent(sp);
   stopButton.attribute('class','button-6');
   stopButton.mousePressed(function() {
-
+    play = false;
     noLoop();
 
   });
